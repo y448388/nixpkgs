@@ -8,21 +8,18 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "rustpython";
-  version = "0.3.1";
+  version = "0.4.0";
 
   src = fetchFromGitHub {
     owner = "RustPython";
     repo = "RustPython";
-    rev = "refs/tags/${version}";
-    hash = "sha256-AtIaWwE1pEIP1SJN9dYgHRP1GX4LTmetIPztHbsBXto=";
+    rev = "a8964f4108d9ba0f1b87ced33eef955922b4825d";
+    hash = "sha256-mnUVxTBOGu7EXIo/R5MszQf+FpqmXPltCrTbNR81nPw=";
   };
 
   cargoLock = {
     lockFile = ./Cargo.lock;
-    outputHashes = {
-      "rustpython-ast-0.3.1" = "sha256-dT0x4E8k/FcSP/q0uwwBWniT1n9HGmFF/HV6hAE6bGU=";
-      "rustpython-doc-0.3.0" = "sha256-34ERuLFKzUD9Xmf1zlafe42GLWZfUlw17ejf/NN6yH4=";
-    };
+    allowBuiltinFetchGit = true;
   };
 
   # freeze the stdlib into the rustpython binary
